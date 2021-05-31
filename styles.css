@@ -52,7 +52,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 80%;
+  height: 70%;
   width: 100%;
   padding: 20px;
 }
@@ -70,7 +70,7 @@ h1 {
   margin: 0 0 20px 0;
   font-weight: 300;
   font-size: 28px;
-  height: 10%;
+  height: 20%;
 }
 
 input {
