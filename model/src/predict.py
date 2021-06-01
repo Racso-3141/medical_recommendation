@@ -1,27 +1,25 @@
 import dill
 import numpy as np
 import torch
-from models import SafeDrugModel
-from util import buildMPNN
+from src.models import SafeDrugModel
+from src.util import buildMPNN
 import torch.nn.functional as F
 
 
 # setting
-model_name = 'SafeDrug'
-best_path = "best.model"
+best_path = "./src/best.model"
 dim = 64
 
-
-def main():
+def predict(input):
     
     # load data
-    data_path = '../data/records_final.pkl'
-    voc_path = '../data/voc_final.pkl'
+    data_path = './data/records_final.pkl'
+    voc_path = './data/voc_final.pkl'
 
-    ehr_adj_path = '../data/ehr_adj_final.pkl'
-    ddi_adj_path = '../data/ddi_A_final.pkl'
-    ddi_mask_path = '../data/ddi_mask_H.pkl'
-    molecule_path = '../data/idx2drug.pkl'
+    ehr_adj_path = './data/ehr_adj_final.pkl'
+    ddi_adj_path = './data/ddi_A_final.pkl'
+    ddi_mask_path = './data/ddi_mask_H.pkl'
+    molecule_path = './data/idx2drug.pkl'
     device = torch.device('cpu')
 
     ehr_adj = dill.load(open(ehr_adj_path, 'rb'))
@@ -44,7 +42,7 @@ def main():
 
     model = SafeDrugModel(voc_size, ddi_adj, ddi_mask_H, MPNNSet, N_fingerprint, average_projection, emb_dim=dim, device=device)
     model.load_state_dict(torch.load(open(best_path, 'rb')))
-    target_output, _ = model([[[4, 8, 11], [45, 9, 6]]])
+    target_output, _ = model(input)
     
 
     # prediction prod
@@ -57,7 +55,5 @@ def main():
 
     # prediction label
     y_pred_label_tmp = np.where(y_pred_tmp == 1)[0]
-    print(y_pred_label_tmp)
+    return map(str, y_pred_label_tmp.tolist())
 
-if __name__ == '__main__':
-    main()

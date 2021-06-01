@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 from dnc import DNC
-from layers import GraphConvolution
+from src.layers import GraphConvolution
 import math
 from torch.nn.parameter import Parameter
 
