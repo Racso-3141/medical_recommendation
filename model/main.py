@@ -13,27 +13,6 @@ def main(request):
     #     <https://flask.palletsprojects.com/en/1.1.x/api/#flask.make_response>.
     # """
 
-    request_args = request.args
-    request_json = request.get_json()
-
-    
-    if request_args:
-        if "diagnosis" in  request_args and "procedure" in request_args:
-            index_diagnosis = request_args.get("diagnosis")
-            index_procedure = request_args.get("procedure")
-    elif request_json:
-        if "diagnosis" in  request_json and "procedure" in request_json:
-            index_diagnosis = request_json["diagnosis"]
-            index_procedure = request_json["procedure"]
-    else:
-        return escape("Hello World!")
-
-
-    list_diagnosis = list(map(int, index_diagnosis.split("-")))
-    list_procedure = list(map(int, index_procedure.split("-")))
-    input_indices = [[list_diagnosis, list_procedure]]
-    result = "-".join(predict(input_indices))
-
     if request.method == 'OPTIONS':
         # Allows GET requests from any origin with the Content-Type
         # header and caches preflight response for an 3600s
@@ -44,11 +23,33 @@ def main(request):
             'Access-Control-Max-Age': '3600'
         }
 
-        return (result, 204, headers)
+        code = 204
+    else:
+        # Set CORS headers for the main request
+        headers = {
+            'Access-Control-Allow-Origin': '*'
+        }
 
-    # Set CORS headers for the main request
-    headers = {
-        'Access-Control-Allow-Origin': '*'
-    }
+        code = 200
 
-    return (result, 200, headers)
+    request_args = request.args
+    request_json = request.get_json()
+    
+    if request_args:
+        if "diagnosis" in  request_args and "procedure" in request_args:
+            index_diagnosis = request_args.get("diagnosis")
+            index_procedure = request_args.get("procedure")
+    elif request_json:
+        if "diagnosis" in  request_json and "procedure" in request_json:
+            index_diagnosis = request_json["diagnosis"]
+            index_procedure = request_json["procedure"]
+    else:
+        result = escape("Hello World!")
+
+
+    list_diagnosis = list(map(int, index_diagnosis.split("-")))
+    list_procedure = list(map(int, index_procedure.split("-")))
+    input_indices = [[list_diagnosis, list_procedure]]
+    result = "-".join(predict(input_indices))
+
+    return (result, code, headers)
