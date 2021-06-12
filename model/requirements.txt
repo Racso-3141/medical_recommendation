@@ -1,0 +1,10 @@
+Flask==1.1.2
+rdkit-pypi
+dill
+numpy
+torch
+sklearn
+pandas
+dnc
+click==7.1.2
+functions-framework==2.1.0
