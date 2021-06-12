@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from "./Header/Header";
+import Inputs from "./Inputs/Inputs";
+import Outputs from "./Outputs/Outputs";
+import Controls from "./Controls/Controls";
+import reducer, {initialState} from "./reducer";
+import {StateProvider} from "./StateProvider";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Header/>
       </header>
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <div className="main">
+          <div className="left">
+            <Inputs/>
+            <Controls/>
+          </div>
+          <div className="right">
+            <Outputs/>
+          </div>
+        </div>
+      </StateProvider>
     </div>
   );
 }
