@@ -1,4 +1,5 @@
 import './App.css';
+import React, {useState, useEffect} from 'react';
 import Header from "./Header/Header";
 import Inputs from "./Inputs/Inputs";
 import Outputs from "./Outputs/Outputs";
@@ -6,12 +7,21 @@ import Controls from "./Controls/Controls";
 import reducer, {initialState} from "./reducer";
 import {StateProvider} from "./StateProvider";
 import db from "./firebase";
-import {getDocs} from "firebase/firestore";
 
-const diag_data = getDocs(collection(db, "diag"))
-                  .map(doc=>doc.data());;
 
 function App() {
+  const [diag_data, setDiag] = useState([]);
+  const [med_data, setMed] = useState([]);
+  const [pro_data, setPro] = useState([]);
+  useEffect(() => {
+    db.collection("diag")
+      .get()
+      .then((snapshot) => {
+        setDiag(
+          snapshot.docs.map((doc)  => (doc.data()["ICD"]))
+        )
+      });
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
