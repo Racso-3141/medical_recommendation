@@ -5,6 +5,11 @@ import Outputs from "./Outputs/Outputs";
 import Controls from "./Controls/Controls";
 import reducer, {initialState} from "./reducer";
 import {StateProvider} from "./StateProvider";
+import db from "./firebase";
+import {getDocs} from "firebase/firestore";
+
+const diag_data = getDocs(collection(db, "diag"))
+                  .map(doc=>doc.data());;
 
 function App() {
   return (
@@ -15,7 +20,7 @@ function App() {
       <StateProvider initialState={initialState} reducer={reducer}>
         <div className="main">
           <div className="left">
-            <Inputs/>
+            <Inputs name="diagnosis" data={diag_data}/>
             <Controls/>
           </div>
           <div className="right">

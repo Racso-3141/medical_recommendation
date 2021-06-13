@@ -1,7 +1,7 @@
 export const initialState = {
-    diagnoses: [],
-    procedures: [],
-    drugs: []
+    'diagnosis': [],
+    'procedure': [],
+    'drug': []
 };
 
 export const actionTypes = {

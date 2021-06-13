@@ -4,15 +4,13 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import {useStateValue} from "../StateProvider";
 import "./Item.css";
 
-function Item() {
-    const [{diagnoses, procedures, drugs}] = useStateValue();
-
+class InnerItem extends React.Component {
     handleAdd = () => {
-        this.props.add()
+        this.props.inner_add();
     }
 
     handleRemove = () => {
-        
+        this.props.inner_remove();
     }
 
     render() {
@@ -21,22 +19,33 @@ function Item() {
                 <div className="SearchBar">
                     <Autocomplete
                         freeSolo
-                        options={this.props.options}
+                        options={this.props.inner_options}
                         autoComplete
                         renderInput={(params) => (
-                            <TextField {...params} label={this.props.label} margin="normal" variant="outlined" />
+                            <TextField {...params} label={this.props.inner_label} margin="normal" variant="outlined" />
                         )}
                     />
             </div>
             <div className="add_remove">
                 <button onClick={this.handleAdd}>Add</button>
-                {this.props.head === false &&
+                {this.props.inner_head === false &&
                     <button onClick={this.handleRemove}>Remove</button>
                 }
             </div>
             </div>
         )
-      }
+    }
   }
   
-export default Item
+  function Item({add, remove, options, label, head}) {
+      const [userInput, setUserInput] = useState("");
+      const getInput = (value) => {
+          setUserInput(value);
+      }
+      return (
+          <InnerItem inner_add={add} inner_remove={remove} 
+          inner_options={options} inner_label={label} inner_head={head} inner_getInput = {getInput}/>
+      )
+  }
+  
+  export default Item
