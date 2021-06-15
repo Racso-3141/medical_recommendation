@@ -3,32 +3,46 @@ import {useStateValue} from "../StateProvider";
 import Item from "./Item";
 import "./Inputs.css";
 
-function Inputs({name, data}) {
-    const [items, setItems] = useState([]);
+function Inputs({label, options}) {
     const [state, dispatch] = useStateValue();
-    const removeInput = (InputType, idx) => {
-        dispatch({type: InputType,
-                    data: state[InputType].splice(idx, 1)
-                });
+    
+    function insert(arr, idx) {
+        let newArr = [];
+        for (const item in arr) {
+            newArr.push(arr[item]);
+            console.log(item);
+        }
+        newArr.splice(idx + 1, 0, " ");
+        return newArr;
     }
-    const addAfter = (item) => {
-        let idx = items.indexOf(item);
-        setItems(items.splice(idx, 0, <Item head={false} label = {name} 
-            options = {data} add = {addAfter} remove = {removeCurrent}/>));
-    };
-    const removeCurrent = (item) => {
-        let idx = items.indexOf(item);
-        setItems(items.splice(idx, 1));
-        removeInput(name, idx);
-    };
-    if (items.length === 0) {
-        setItems([<Item head={true} label = {name} 
-            options = {data} add = {addAfter}
-            remove = {removeCurrent}/>].concat(items));
+
+    function remove(arr, idx) {
+        let newArr = []
+        for (const item in arr) {
+            newArr.push(item);
+        }
+        newArr.splice(idx, 1);
+        return newArr;
     }
+    const addAfter = (idx) => dispatch({
+        type: label,
+        data: insert(state[label], idx)
+    });
+
+    const removeCurrent = (idx) => dispatch({
+        type: label,
+        data: remove(state[label], idx)
+    });
     return (
         <div className="Inputs">
-            {items}
+            <Item addAfter = {addAfter} removeCurrent = {removeCurrent}
+                options = {options} label={label}
+                head={true} idx = {0}
+            />
+            {Array.from({length: state[label].length - 1}, (_, index) => index + 1).map(index => (<Item addAfter = {addAfter} removeCurrent = {removeCurrent}
+                options = {options} label={label}
+                head={false} idx = {index}
+            />))}
         </div>
     )
 }

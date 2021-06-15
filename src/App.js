@@ -6,21 +6,25 @@ import Outputs from "./Outputs/Outputs";
 import Controls from "./Controls/Controls";
 import reducer, {initialState} from "./reducer";
 import {StateProvider} from "./StateProvider";
-import db from "./firebase";
+import dbRef from "./firebase";
+
 
 
 function App() {
-  const [diag_data, setDiag] = useState([]);
-  const [med_data, setMed] = useState([]);
-  const [pro_data, setPro] = useState([]);
+  const [data, setData] = useState({"diagnosis":[],
+                                    "drug":[],
+                                    "procedure":[],                                  
+                                    });
   useEffect(() => {
-    db.collection("diag")
-      .get()
-      .then((snapshot) => {
-        setDiag(
-          snapshot.docs.map((doc)  => (doc.data()["ICD"]))
-        )
-      });
+    dbRef.get().then(
+      (snapshot)=>{
+        setData({
+          "diagnosis": snapshot.val()['diagnosis'] ,
+          "drug": snapshot.val()['drug'] ,
+          "procedure": snapshot.val()['procedure']
+        })
+      }
+    )
   }, []);
   return (
     <div className="App">
@@ -30,7 +34,11 @@ function App() {
       <StateProvider initialState={initialState} reducer={reducer}>
         <div className="main">
           <div className="left">
-            <Inputs name="diagnosis" data={diag_data}/>
+            {data["diagnosis"].length > 0 ? <Inputs  label="diagnosis"
+            options = {data["diagnosis"].map((item)=>item.name)}/> : null}
+            {data["procedure"].length > 0 ? <Inputs  label="procedure" 
+            options = {data["procedure"].map((item)=>item.name)}/> : null}
+
             <Controls/>
           </div>
           <div className="right">
