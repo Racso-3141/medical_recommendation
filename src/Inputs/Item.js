@@ -4,7 +4,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import {useStateValue} from "../StateProvider";
 import "./Item.css";
 
-function Item({addAfter, removeCurrent, label, options, head, idx}) {
+function Item({addAfter, removeCurrent, label, options, head, idx}) {    
     const handleAdd = () => {
         addAfter(idx);
     }
