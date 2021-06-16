@@ -7,8 +7,6 @@ import Controls from "./Controls/Controls";
 import reducer, {initialState} from "./reducer";
 import {StateProvider} from "./StateProvider";
 import dbRef from "./firebase";
-import Test from "./Inputs/Test";
-
 
 function App() {
   const [data, setData] = useState({"diagnosis":[],

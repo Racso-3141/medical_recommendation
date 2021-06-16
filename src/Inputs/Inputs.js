@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useStateValue} from "../StateProvider";
 import Item from "./Item";
 
 
-function Test({label, options}) {
+function Inputs({label, options}) {
   const [selectedList, setSelectedList] = useState([""]);
   const [inputList, setInputList] = useState([""]);
   const [state, dispatch] = useStateValue();
@@ -88,4 +88,4 @@ function Test({label, options}) {
   );
 }
 
-export default Test;
+export default Inputs;

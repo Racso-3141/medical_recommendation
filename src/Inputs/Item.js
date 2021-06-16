@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import {useStateValue} from "../StateProvider";
 import "./Item.css";
 
 function Item({addAfter, removeCurrent, onSelectedChange, onInputChange, label, options, head, idx, curVal}) { 
