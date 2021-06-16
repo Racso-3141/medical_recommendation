@@ -38,7 +38,7 @@ function App() {
             options = {data["diagnosis"].map((item)=>item.name)}/> : null}
             {data["procedure"].length > 0 ? <Inputs  label="procedure" 
             options = {data["procedure"].map((item)=>item.name)}/> : null}
-            <Controls/>
+            <Controls data = {data}/>
           </div>
           <div className="right">
             <Outputs/>
