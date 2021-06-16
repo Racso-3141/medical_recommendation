@@ -7,7 +7,7 @@ import Controls from "./Controls/Controls";
 import reducer, {initialState} from "./reducer";
 import {StateProvider} from "./StateProvider";
 import dbRef from "./firebase";
-import Test from "./Test";
+import Test from "./Inputs/Test";
 
 
 
@@ -35,7 +35,7 @@ function App() {
       <StateProvider initialState={initialState} reducer={reducer}>
         <div className="main">
           <div className="left">
-            {data["diagnosis"].length > 0 ? <Inputs  label="diagnosis"
+            {data["diagnosis"].length > 0 ? <Inputs label="diagnosis"
             options = {data["diagnosis"].map((item)=>item.name)}/> : null}
             {data["procedure"].length > 0 ? <Inputs  label="procedure" 
             options = {data["procedure"].map((item)=>item.name)}/> : null}

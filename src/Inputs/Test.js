@@ -67,7 +67,25 @@ function Test({label, options}) {
             />
         );
       })}
+      <h2>Input List:</h2>
+      <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>
+      <h2>Selected List:</h2>
+      <div style={{ marginTop: 20 }}>{JSON.stringify(selectedList)}</div>
     </div>
+    // <div className="Test">
+    //     {state[label].map((x, i) => {
+    //     return (
+    //         <Item 
+    //             addAfter = {() => addAfter(i)} 
+    //             removeCurrent = {() => removeCurrent(i)}
+    //             options = {options} 
+    //             label={label}
+    //             head={false} 
+    //             idx = {i}
+    //     />
+    //     );
+    //   })}
+    // </div>
   );
 }
 
