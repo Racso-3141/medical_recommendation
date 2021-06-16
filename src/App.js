@@ -10,7 +10,6 @@ import dbRef from "./firebase";
 import Test from "./Inputs/Test";
 
 
-
 function App() {
   const [data, setData] = useState({"diagnosis":[],
                                     "drug":[],

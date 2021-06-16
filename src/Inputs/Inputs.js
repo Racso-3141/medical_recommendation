@@ -6,21 +6,27 @@ import Item from "./Item";
 function Test({label, options}) {
   const [selectedList, setSelectedList] = useState([""]);
   const [inputList, setInputList] = useState([""]);
-  
   const [state, dispatch] = useStateValue();
 
   // handle input change
   const handleInputChange = (index, value) => {
-    const list = [...inputList];
-    list[index] = value;
-    setInputList(list);
+    const cloneInputlist = [...inputList];
+    cloneInputlist[index] = value;
+    setInputList(cloneInputlist);
   };
+
 
   // handle selected change
   const handleSelectedChange = (index, value) => {
-    const list = [...selectedList];
-    list[index] = value;
-    setSelectedList(list);
+    const cloneSelectedlist = [...selectedList];
+    cloneSelectedlist[index] = value;
+    setSelectedList(cloneSelectedlist);
+
+    dispatch({
+      type: label,
+      data: cloneSelectedlist
+    });
+    
   };
 
 
@@ -32,9 +38,15 @@ function Test({label, options}) {
     cloneInputlist.splice(index, 1);
     cloneSelectedlist.splice(index, 1);
 
-
     setInputList(cloneInputlist);
     setSelectedList(cloneSelectedlist);
+
+    dispatch({
+      type: label,
+      data: cloneSelectedlist
+    });
+
+    
   };
 
 
@@ -48,10 +60,15 @@ function Test({label, options}) {
 
     setInputList(cloneInputlist);
     setSelectedList(cloneSelectedlist);
+
+    dispatch({
+      type: label,
+      data: cloneSelectedlist
+    });
   };
 
   return (
-    <div className="Test">
+    <div className="Inputs">
       {selectedList.map((x, i) => {
         return (
             <Item 
