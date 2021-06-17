@@ -1,0 +1,57 @@
+.main, .left {
+    display: flex;
+    flex-direction: row;
+}
+
+.left, .right {
+    width: 48%;
+    border:1px solid grey;
+    overflow: scroll;
+    border-top: 0px;
+}
+
+.left {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.App-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 10%;
+    padding: 20px;
+    background-color:#2f9ac4;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ffffed;
+    height: 90%;
+    border:1px solid grey;
+}
+
+.App {
+    height: 100%;
+}
+
+Outputs {
+    overflow: scroll;
+    height: 85%;
+}
+
+Controls {
+    height: 15%;
+}

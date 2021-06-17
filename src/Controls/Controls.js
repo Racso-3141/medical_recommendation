@@ -2,6 +2,7 @@ import React , {useState} from 'react';
 import {useStateValue} from "../StateProvider";
 import "./Controls.css";
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
 
 function Controls({data}) {
     const [state, dispatch] = useStateValue();
@@ -58,8 +59,8 @@ function Controls({data}) {
 
     return (
         <div className = "generate_reset">
-            <button id="generate_btn" onClick={handleGenerateClick}>Generate</button>
-            <button id="reset_btn">Reset</button>
+            <Button id="generate_btn" onClick={handleGenerateClick}>Get Drugs 💊</Button>
+            <Button id="reset_btn">Reset</Button>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useStateValue} from "../StateProvider";
 import Item from "./Item";
+import "./Inputs.css";
 
 
 function Inputs({label, options}) {
@@ -78,7 +79,7 @@ function Inputs({label, options}) {
                 onInputChange = {handleInputChange}
                 options = {options} 
                 label={label}
-                head={false} 
+                head={i === 0} 
                 idx = {i}
                 curVal={inputList[i]}
             />

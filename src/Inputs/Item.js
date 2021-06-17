@@ -1,6 +1,9 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+import { IconButton } from '@material-ui/core';
 import "./Item.css";
 
 function Item({addAfter, removeCurrent, onSelectedChange, onInputChange, label, options, head, idx, curVal}) { 
@@ -32,16 +35,23 @@ function Item({addAfter, removeCurrent, onSelectedChange, onInputChange, label, 
                     options={options}
                     autoComplete
                     renderInput={(params) => (
-                        <TextField {...params} label={label} margin="normal" variant="outlined" />
+                        <TextField {...params} label={label} margin="normal" variant="outlined" 
+                            className="inputRounded"
+                            placeholder="Search"
+                        />
                     )}
                 />
-        </div>
-        <div className="add_remove">
-            <button onClick={handleAdd}>Add</button>
-            {head === false &&
-                <button onClick={handleRemove}>Remove</button>
-            }
-        </div>
+            </div>
+            <div className="add-remove">
+                <IconButton id="add" onClick={handleAdd} size="small" p={0}>
+                    <AddIcon/>
+                </IconButton>
+                {head === false &&
+                    <IconButton id="remove" onClick={handleRemove} size="small" p = {0}>
+                        <RemoveIcon/>
+                    </IconButton>
+                }
+            </div>
         </div>
     )
 }
