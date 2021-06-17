@@ -7,9 +7,11 @@ function Outputs() {
 
     return (
         <div className="outputs">
-            {state["drug"].map((item)=>
-                <h2>{item}</h2>
-            )}
+            <ul>
+                {state["drug"].length > 0 && state["drug"].map((item)=>
+                        <li>{item}</li>                
+                )}
+            </ul>
         </div>
     )
 }

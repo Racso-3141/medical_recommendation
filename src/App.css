@@ -47,11 +47,27 @@
     height: 100%;
 }
 
-Outputs {
+.outputs {
     overflow: scroll;
     height: 85%;
 }
 
-Controls {
+.generate_reset {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
     height: 15%;
+}
+
+.left::-webkit-scrollbar {
+    display: none;
+}
+
+.right::-webkit-scrollbar {
+    display: none;
+}
+
+.outputs::-webkit-scrollbar {
+    display: none;
 }

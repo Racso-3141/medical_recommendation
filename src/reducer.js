@@ -7,7 +7,8 @@ export const initialState = {
 export const actionTypes = {
     SET_DIAG: "diagnosis",
     SET_PRO: "procedure",
-    SET_DRUG: "drug"
+    SET_DRUG: "drug",
+    SET_RESET: "reset"
 };
 
 const reducer = (state, action) => {
@@ -26,6 +27,12 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 drug: action.data
+            };
+        case actionTypes.SET_RESET:
+            return {
+                diagnosis: [" "],
+                procedure: [" "],
+                drug: []
             };
         default: 
             return state;

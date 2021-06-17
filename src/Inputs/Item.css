@@ -24,28 +24,28 @@ IconButton {
 }
 
 .SearchBar {
-    width: 60%;
+    width: 72%;
 }
 
 .Item {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     border: 3px black;
     padding: 5px;
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 5px;
+    padding-left: 10px;
     background: #4287f5;
     background-clip: border-box;
-    border-radius: 15px;
+    border-radius: 30px;
     margin-left:15px;
     margin-right:15px;
     margin-top: 10px;
     margin-bottom: 10px;
+    width: 60%;
 }
 
 .inputRounded .MuiOutlinedInput-root {
-    border-radius: 10px;
     background-color: white;
 }

@@ -1,11 +1,18 @@
-#generate_btn {
-    background-color: #f2291b;
-    padding: 0;
-    margin: 5px;
+#generate {
+    color: #2f9ac4;
 }
 
-#reset_btn {
-    background-color: #f59e42;
-    padding: 0;
-    margin: 5px;
+#generate:hover {
+    transform: scale(1.5); 
+}
+
+#reset:hover {
+    transform: scale(1.2); 
+}
+
+.generate-reset {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

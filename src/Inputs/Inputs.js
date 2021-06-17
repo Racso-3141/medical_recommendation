@@ -70,7 +70,7 @@ function Inputs({label, options}) {
 
   return (
     <div className="Inputs">
-      {selectedList.map((x, i) => {
+      {state[label].map((x, i) => {
         return (
             <Item 
                 addAfter = {() => handleAddClick(i)} 

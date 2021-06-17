@@ -3,6 +3,9 @@ import {useStateValue} from "../StateProvider";
 import "./Controls.css";
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
+import { GiPill } from 'react-icons/gi';
+import { GrPowerReset } from 'react-icons/gr';
+import { Label } from '@material-ui/icons';
 
 function Controls({data}) {
     const [state, dispatch] = useStateValue();
@@ -54,13 +57,16 @@ function Controls({data}) {
     };
 
     const handleResetClick = () => {
-
+        dispatch({
+            type: "reset"
+        });
+        
     };
 
     return (
-        <div className = "generate_reset">
-            <Button id="generate_btn" onClick={handleGenerateClick}>Get Drugs 💊</Button>
-            <Button id="reset_btn">Reset</Button>
+        <div className = "generate-reset">
+            <GiPill onClick={handleGenerateClick} id="generate" size={70}/>
+            <GrPowerReset onClick={handleResetClick} id="reset" size={50}/>
         </div>
     )
 }
