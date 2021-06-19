@@ -29,7 +29,7 @@ function Item({addAfter, removeCurrent, onSelectedChange, onInputChange, label, 
             <div className="SearchBar">
                 <Autocomplete
                     freeSolo
-                    value={curVal}
+                    inputValue={curVal}
                     onChange={(event, value)=>handleSelectedChange(value)}
                     onInputChange={(event, value)=>handleInputChange(value)}
                     options={options}

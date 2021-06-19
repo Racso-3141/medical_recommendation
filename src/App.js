@@ -9,20 +9,18 @@ import {StateProvider} from "./StateProvider";
 import dbRef from "./firebase";
 
 function App() {
-  const [data, setData] = useState({"diagnosis":[],
+  const [data, setData] = useState({"diagnosis":[" "],
                                     "drug":[],
-                                    "procedure":[],                                  
+                                    "procedure":[" "],                                  
                                     });
   useEffect(() => {
-    dbRef.get().then(
-      (snapshot)=>{
-        setData({
-          "diagnosis": snapshot.val()['diagnosis'] ,
-          "drug": snapshot.val()['drug'] ,
-          "procedure": snapshot.val()['procedure']
-        })
-      }
-    )
+    dbRef.once('value',(snap)=>{
+      setData({
+        "diagnosis": snap.val()['diagnosis'] ,
+        "drug": snap.val()['drug'] ,
+        "procedure": snap.val()['procedure']
+      })
+    });
   }, []);
   return (
     <div className="App">

@@ -5,7 +5,6 @@ import "./Inputs.css";
 
 
 function Inputs({label, options}) {
-  const [selectedList, setSelectedList] = useState([""]);
   const [inputList, setInputList] = useState([""]);
   const [state, dispatch] = useStateValue();
 
@@ -19,9 +18,8 @@ function Inputs({label, options}) {
 
   // handle selected change
   const handleSelectedChange = (index, value) => {
-    const cloneSelectedlist = [...selectedList];
+    const cloneSelectedlist = [...state[label]];
     cloneSelectedlist[index] = value;
-    setSelectedList(cloneSelectedlist);
 
     dispatch({
       type: label,
@@ -34,13 +32,12 @@ function Inputs({label, options}) {
   // handle click event of the Remove button
   const handleRemoveClick = index => {
     const cloneInputlist = [...inputList];
-    const cloneSelectedlist = [...selectedList];
+    const cloneSelectedlist = [...state[label]];
     
     cloneInputlist.splice(index, 1);
     cloneSelectedlist.splice(index, 1);
 
     setInputList(cloneInputlist);
-    setSelectedList(cloneSelectedlist);
 
     dispatch({
       type: label,
@@ -54,13 +51,12 @@ function Inputs({label, options}) {
   // handle click event of the Add button
   const handleAddClick = (index) => {
     const cloneInputlist = [...inputList];
-    const cloneSelectedlist = [...selectedList];
+    const cloneSelectedlist = [...state[label]];
 
     cloneInputlist.splice(index + 1, 0, "");
     cloneSelectedlist.splice(index + 1, 0, "");
 
     setInputList(cloneInputlist);
-    setSelectedList(cloneSelectedlist);
 
     dispatch({
       type: label,

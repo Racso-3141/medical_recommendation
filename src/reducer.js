@@ -30,6 +30,7 @@ const reducer = (state, action) => {
             };
         case actionTypes.SET_RESET:
             return {
+                ...state,
                 diagnosis: [" "],
                 procedure: [" "],
                 drug: []
