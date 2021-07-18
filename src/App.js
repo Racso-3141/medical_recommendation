@@ -2,10 +2,12 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 import Header from "./Header/Header";
 import Inputs from "./Inputs/Inputs";
+import Tags from "./Tags/Tags";
 import Outputs from "./Outputs/Outputs";
 import Controls from "./Controls/Controls";
 import reducer, {initialState} from "./reducer";
 import {StateProvider} from "./StateProvider";
+import {useStateValue} from "./StateProvider";
 import dbRef from "./firebase";
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
                                     "drug":[],
                                     "procedure":[" "],                                  
                                     });
+  const [state, dispatch] = useStateValue();   
   useEffect(() => {
     dbRef.once('value',(snap)=>{
       setData({
@@ -30,10 +33,20 @@ function App() {
       <StateProvider initialState={initialState} reducer={reducer}>
         <div className="main">
           <div className="left">
-            {data["diagnosis"].length > 0 ? <Inputs label="diagnosis"
-            options = {data["diagnosis"].map((item)=>item.name)}/> : null}
-            {data["procedure"].length > 0 ? <Inputs  label="procedure" 
-            options = {data["procedure"].map((item)=>item.name)}/> : null}
+            <div className="diag">
+              <Tags label = "diagnosis" options = {data["diagnosis"].map((item)=>item.name)}/>
+              <ul>
+                {/* {state["diagnosis"].map((item) => <li>item</li>)} */}
+              </ul>
+            </div>
+            
+            <div className="pro">
+              <Tags label = "procedure" options = {data["procedure"].map((item)=>item.name)}/>
+              <ul>
+                {/* {state["procedure"].map((item) => <li>item</li>)} */}
+              </ul>
+            </div>
+            
           </div>
           <div className="right">
             <Outputs/>
