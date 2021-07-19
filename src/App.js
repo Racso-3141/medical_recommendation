@@ -1,19 +1,18 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import Header from "./Header/Header";
-import Inputs from "./Inputs/Inputs";
-import Tags from "./Tags/Tags";
+import Input from "./Input/Input";
 import Outputs from "./Outputs/Outputs";
 import Controls from "./Controls/Controls";
 import reducer, {initialState} from "./reducer";
-import {StateProvider} from "./StateProvider";
 import {useStateValue} from "./StateProvider";
+import List from "./List/List";
 import dbRef from "./firebase";
 
 function App() {
-  const [data, setData] = useState({"diagnosis":[" "],
+  const [data, setData] = useState({"diagnosis":[],
                                     "drug":[],
-                                    "procedure":[" "],                                  
+                                    "procedure":[],                                  
                                     });
   const [state, dispatch] = useStateValue();   
   useEffect(() => {
@@ -30,30 +29,28 @@ function App() {
       <header className="App-header">
         <Header/>
       </header>
-      <StateProvider initialState={initialState} reducer={reducer}>
-        <div className="main">
-          <div className="left">
-            <div className="diag">
-              <Tags label = "diagnosis" options = {data["diagnosis"].map((item)=>item.name)}/>
-              <ul>
-                {/* {state["diagnosis"].map((item) => <li>item</li>)} */}
-              </ul>
-            </div>
-            
-            <div className="pro">
-              <Tags label = "procedure" options = {data["procedure"].map((item)=>item.name)}/>
-              <ul>
-                {/* {state["procedure"].map((item) => <li>item</li>)} */}
-              </ul>
-            </div>
-            
+      <div className="main">
+        <div className="left">
+          <div className="diag">
+            {data["diagnosis"].length > 0
+              ? <Input label = "diagnosis" options = {data["diagnosis"].map((item)=>item.name)}/>
+              : null}
+            <List label = "diagnosis"/>
           </div>
-          <div className="right">
-            <Outputs/>
-            <Controls data = {data}/>
+          
+          <div className="pro">
+            {data["procedure"].length > 0
+              ? <Input label = "procedure" options = {data["procedure"].map((item)=>item.name)}/>
+              : null}
+            <List label = "procedure"/>
           </div>
+          
         </div>
-      </StateProvider>
+        {/* <div className="right">
+          <Outputs/>
+          <Controls data = {data}/>
+        </div> */}
+      </div>
     </div>
   );
 }
