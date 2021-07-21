@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import React, {useState, useEffect} from 'react';
 import Header from "./Header/Header";
 import Input from "./Input/Input";
@@ -32,6 +32,7 @@ function App() {
       <div className="main">
         <div className="left">
           <div className="diag">
+            <h2>Diagnosis:</h2>
             {data["diagnosis"].length > 0
               ? <Input label = "diagnosis" options = {data["diagnosis"].map((item)=>item.name)}/>
               : null}
@@ -39,6 +40,7 @@ function App() {
           </div>
           
           <div className="pro">
+            <h2>Procedure:</h2>
             {data["procedure"].length > 0
               ? <Input label = "procedure" options = {data["procedure"].map((item)=>item.name)}/>
               : null}

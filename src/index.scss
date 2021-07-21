@@ -1,0 +1,74 @@
+// Font Family
+$body-font: "Roboto";
+
+// Font Weights
+$thin: 100;
+$light: 300;
+$regular: 400;
+$semibold: 500;
+$bold: 700;
+$ultra: 800;
+
+// Base Font
+$base-font-family: $body-font, sans-serif;
+$base-font-size: 14px;
+$base-font-weight: $regular;
+$base-line-height: 1.6em;
+
+// Colors
+$black: #000000;
+$dark-gray: rgba($black, 0.8);
+$gray: rgba($black, 0.6);
+$light-gray: rgba($black, 0.4);
+$lighter-gray: rgba($black, 0.2);
+$white: #FFFFFF;
+$accent: #4285F4;
+
+// Form Settings
+$max-width: 600px;
+$max-height: 400px;
+$gutters: 24px;
+
+
+#root {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(45deg,  rgba(66, 183, 245,0.8) 0%,rgba(66, 245, 189,0.4) 100%);
+  color: $gray;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  display: block;
+  margin: 0 auto;
+  max-width: 40rem;
+  padding: 1rem;
+}
+
+.App {
+  color: rgba(0, 0, 0, 0.6);
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  z-index: 15;
+  position: relative;
+  background: #FFFFFF;
+  width: 600px;
+  border-radius: 4px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin: 100px auto 10px;
+  overflow: scroll;
+}
+
+
+.App::-webkit-scrollbar {
+  display: none;
+}

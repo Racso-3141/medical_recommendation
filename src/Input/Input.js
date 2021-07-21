@@ -4,14 +4,14 @@ import TextField from '@material-ui/core/TextField';
 import {useStateValue} from "../StateProvider";
 import { makeStyles } from "@material-ui/core/styles";  
 
-const useStyles = makeStyles({
-    inputRoot: {
-      width: "50%"
-    }
-});
-
 export default function Input({label, options}) {
-    
+    const inputStyle = {
+        display: "block",
+        background: "rgba(0, 0, 0, 0.1)",
+        border: "0",
+        color: "rgba(0, 0, 0, 0.6)",
+    };
+
     const [state, dispatch] = useStateValue();
     return (
         <div className={label}>
@@ -32,7 +32,10 @@ export default function Input({label, options}) {
                     
                 }}
                 renderInput={(params) => (
-                <TextField {...params} label={label} margin="normal" variant="outlined" />
+                <TextField {...params} 
+                    margin="normal" 
+                    variant="outlined"
+                    style={inputStyle} />
                 )}
             />
         </div>
