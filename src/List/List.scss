@@ -44,7 +44,7 @@ main {
   display: block;
   margin: 0 auto;
   max-width: 40rem;
-  padding: 1rem;
+  padding: 0;
 }
 
 
@@ -61,11 +61,12 @@ ol.gradient-list {
     counter-increment: gradient-counter;
     margin-top: 1rem;
     min-height: 3rem;
-    padding: 1rem 1rem 1rem 3rem;
+    padding: 0.4rem 1rem 0.5rem 3rem;
     position: relative;
     &::before,
     &::after {
-      background: linear-gradient(135deg, $blue 0%,$green 100%);
+      // background: linear-gradient(135deg, $blue 0%,$green 100%);
+      background: linear-gradient(45deg,  rgba(66, 183, 245,0.8) 100%,rgba(66, 245, 189,0.4) 0%);
       border-radius: 1rem 1rem 0 1rem;
       content: '';
       height: 3rem;
@@ -124,4 +125,5 @@ IconButton {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin: 0;
 }

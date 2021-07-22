@@ -1,5 +1,4 @@
 import React from 'react';
-import "./Outputs.css"
 import {useStateValue} from "../StateProvider";
 
 function Outputs() {

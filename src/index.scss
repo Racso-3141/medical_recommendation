@@ -50,9 +50,11 @@ main {
 }
 
 .App {
+  display: table;
   color: rgba(0, 0, 0, 0.6);
   -webkit-font-smoothing: antialiased;
   padding: 0;
+  padding-top: 00.5rem;
   border: 0;
   font-size: 100%;
   font: inherit;
@@ -60,12 +62,13 @@ main {
   z-index: 15;
   position: relative;
   background: #FFFFFF;
-  width: 600px;
+  width: 75%;
+  height: 500px;
   border-radius: 4px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   margin: 100px auto 10px;
-  overflow: scroll;
+  overflow: visible;
 }
 
 
