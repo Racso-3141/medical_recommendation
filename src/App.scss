@@ -34,6 +34,11 @@ $gutters: 24px;
     width:75%;
     margin:0 auto;
     text-align:center;
+    padding-left: 0%;
+}
+
+.pro {
+    margin-top: 35px;
 }
 
 .App-header {
@@ -51,4 +56,10 @@ h2 {
     text-transform: uppercase;
     letter-spacing: .2em;
     text-align: left;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }

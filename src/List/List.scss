@@ -42,7 +42,6 @@ body {
 
 main {
   display: block;
-  margin: 0 auto;
   max-width: 40rem;
   padding: 0;
 }
@@ -51,42 +50,18 @@ main {
 ol.gradient-list {
   counter-reset: gradient-counter;
   list-style: none;
-  margin: 1.75rem 0;
-  padding-left: 1rem;
+  margin: 0;
+  padding-left: 0.2rem;
   > div > li {
     width: 70%;
     background: white;
     border-radius: 0 0.5rem 0.5rem 0.5rem;
     @extend %boxshadow;
     counter-increment: gradient-counter;
-    margin-top: 1rem;
+    margin-top: 0rem;
     min-height: 3rem;
-    padding: 0.4rem 1rem 0.5rem 3rem;
-    position: relative;
-    &::before,
-    &::after {
-      // background: linear-gradient(135deg, $blue 0%,$green 100%);
-      background: linear-gradient(45deg,  rgba(66, 183, 245,0.8) 100%,rgba(66, 245, 189,0.4) 0%);
-      border-radius: 1rem 1rem 0 1rem;
-      content: '';
-      height: 3rem;
-      left: -1rem;
-      overflow: hidden;
-      position: absolute;
-      top: -1rem;
-      width: 3rem;
-    }
-    &::before {
-      align-items: flex-end;
-      @extend %boxshadow;
-      content: counter(gradient-counter);
-      color: $black;
-      display: flex;
-      font: 900 1.5em/1 'Montserrat';
-      justify-content: flex-end;
-      padding: 0.125em 0.25em;
-      z-index: 1;
-    }
+    padding: 0.4rem 1rem 0.5rem 0.5rem;
+    
     @for $i from 1 through 5 {
       &:nth-child(10n+#{$i}):before {
         background: linear-gradient(135deg, rgba($green, $i * 0.2) 0%,rgba($yellow, $i * 0.2) 100%);
@@ -125,5 +100,5 @@ IconButton {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin: 0;
+  width: 100%;
 }

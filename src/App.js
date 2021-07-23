@@ -48,10 +48,10 @@ function App() {
           </div>
           
         </div>
-        {/* <div className="right">
+        <div className="right">
           <Outputs/>
           <Controls data = {data}/>
-        </div> */}
+        </div>
       </div>
     </div>
   );

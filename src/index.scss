@@ -44,7 +44,7 @@ $gutters: 24px;
 
 main {
   display: block;
-  margin: 0 auto;
+  margin-left: 0;
   max-width: 40rem;
   padding: 1rem;
 }
@@ -63,7 +63,7 @@ main {
   position: relative;
   background: #FFFFFF;
   width: 75%;
-  height: 500px;
+  height: 45vw;
   border-radius: 4px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
