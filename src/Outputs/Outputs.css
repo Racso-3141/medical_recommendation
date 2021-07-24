@@ -1,0 +1,27 @@
+.outputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width:70%;
+    margin: 30px 0px 0px 30px;
+}
+
+.outputs h3 {
+    display: inline;
+    margin-top: 0;
+    margin-right: 10;
+    color: white;
+    font-size: 20px;
+    padding: 0 5;
+}
+
+.outputs h3 span {
+    
+    /* background-color: rgba(66, 183, 245,0.8); */
+    background: linear-gradient(90deg, red 50%,
+    #FF9912 50%);
+    border-radius: 5px;
+    border: 10px black;
+}
+  

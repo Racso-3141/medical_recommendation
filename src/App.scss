@@ -30,15 +30,16 @@ $max-height: 400px;
 $gutters: 24px;
 
 
-.diag, .pro {
-    width:75%;
+.diag, .pro, .drug {
+    width:70%;
     margin:0 auto;
+    margin-bottom: 30px;
     text-align:center;
     padding-left: 0%;
 }
 
-.pro {
-    margin-top: 35px;
+.diag {
+    margin-bottom: 50px;
 }
 
 .App-header {
@@ -58,7 +59,7 @@ h2 {
     text-align: left;
 }
 
-.left {
+.up {
     display: flex;
     flex-direction: column;
     justify-content: space-around;

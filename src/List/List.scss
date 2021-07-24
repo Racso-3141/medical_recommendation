@@ -41,51 +41,17 @@ body {
 }
 
 main {
-  display: block;
-  max-width: 40rem;
-  padding: 0;
-}
-
-
-ol.gradient-list {
-  counter-reset: gradient-counter;
-  list-style: none;
-  margin: 0;
-  padding-left: 0.2rem;
-  > div > li {
-    width: 70%;
-    background: white;
-    border-radius: 0 0.5rem 0.5rem 0.5rem;
-    @extend %boxshadow;
-    counter-increment: gradient-counter;
-    margin-top: 0rem;
-    min-height: 3rem;
-    padding: 0.4rem 1rem 0.5rem 0.5rem;
-    
-    @for $i from 1 through 5 {
-      &:nth-child(10n+#{$i}):before {
-        background: linear-gradient(135deg, rgba($green, $i * 0.2) 0%,rgba($yellow, $i * 0.2) 100%);
-      }
-    }
-    @for $i from 6 through 10 {
-      &:nth-child(10n+#{$i}):before {
-        background: linear-gradient(135deg, rgba($green, 1 - (($i - 5) * 0.2)) 0%,rgba($yellow, 1 - (($i - 5) * 0.2)) 100%);
-      }
-    }
-    + li {
-      margin-top: 2rem;
-    }
-  }
-}
-
-IconButton {
-  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 #remove {
-  background-color: #ffd662;
+  background-color: #B3C7D6FF;
   padding: 0;
-  margin: 5px;
+  margin: 0px;
+  border-radius: 50%;
 }
 
 .Item {
@@ -93,12 +59,19 @@ IconButton {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.gradient-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  width: 100%;
+.Item h4 {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: white;
+}
+
+.Item h4 span {
+  background-color: rgba(66, 183, 245,0.8);
+  border-radius: 2px;
 }

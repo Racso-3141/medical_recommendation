@@ -40,13 +40,7 @@ $gutters: 24px;
   line-height: $base-line-height;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-main {
-  display: block;
-  margin-left: 0;
-  max-width: 40rem;
-  padding: 1rem;
+  overflow: scroll;
 }
 
 .App {
@@ -62,8 +56,10 @@ main {
   z-index: 15;
   position: relative;
   background: #FFFFFF;
-  width: 75%;
-  height: 45vw;
+  width: 48%;
+  min-width: 700px;
+  min-height: 400px;
+  height: 65%;
   border-radius: 4px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;

@@ -7,7 +7,7 @@
 }
 
 #reset:hover {
-    transform: scale(1.2); 
+    transform: scale(1.5); 
 }
 
 .generate-reset {
@@ -15,4 +15,5 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-top: 15px;
 }

@@ -10,9 +10,10 @@ function List({label}) {
 
     const styles = {
 
-      largeIcon: {
-        width: 60,
-        height: 60,
+      smallIcon: {
+        width: 10,
+        height: 10,
+        padding: 0
       },
     
     };
@@ -32,13 +33,16 @@ function List({label}) {
     return (
         <div>
             <main>
-              <ol className="gradient-list">
-                {state[label].map((item, idx) => 
-                <div className="Item"><li>{item}</li>
-                    <IconButton id="remove" onClick={handleRemove}  p = {0} >
-                        <RemoveIcon iconStyle={styles.largeIcon}/>
-                    </IconButton></div>)}
-              </ol>
+              {state[label].map(item => 
+                <div className="Item">
+                  <h4>
+                    <span>{item}</span>
+                  </h4>
+                  <IconButton id="remove" onClick={handleRemove} size='small'>
+                      <RemoveIcon style={{fontSize: '15px'}}/>
+                  </IconButton>
+                </div>
+                )}
             </main>
         </div>
     )

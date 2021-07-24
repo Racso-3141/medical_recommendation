@@ -1,4 +1,6 @@
 import React from 'react';
+import "./Outputs.css";
+
 import {useStateValue} from "../StateProvider";
 
 function Outputs() {
@@ -6,11 +8,11 @@ function Outputs() {
 
     return (
         <div className="outputs">
-            <ul>
-                {state["drug"].length > 0 && state["drug"].map((item)=>
-                        <li>{item}</li>                
-                )}
-            </ul>
+            {state["drug"].map(item=>
+                <h3>
+                    <span>{item}</span>
+                </h3>                
+            )}
         </div>
     )
 }

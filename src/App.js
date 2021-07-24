@@ -30,7 +30,7 @@ function App() {
         <Header/>
       </header>
       <div className="main">
-        <div className="left">
+        <div className="up">
           <div className="diag">
             <h2>Diagnosis:</h2>
             {data["diagnosis"].length > 0
@@ -48,9 +48,15 @@ function App() {
           </div>
           
         </div>
-        <div className="right">
-          <Outputs/>
-          <Controls data = {data}/>
+
+        <div className="down">
+        {state["drug"].length > 0 && 
+          <div className="drug">
+            <h2>Drugs:</h2>
+            <Outputs/>
+          </div>
+        }
+        <Controls data = {data}/>
         </div>
       </div>
     </div>
