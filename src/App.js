@@ -52,7 +52,7 @@ function App() {
         <div className="down">
         {state["drug"].length > 0 && 
           <div className="drug">
-            <h2>Drugs:</h2>
+            <h2>Drug:</h2>
             <Outputs/>
           </div>
         }
