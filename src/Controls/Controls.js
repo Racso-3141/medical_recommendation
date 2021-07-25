@@ -14,26 +14,26 @@ function Controls({data}) {
         const diagnoses = state["diagnosis"];
         const procedures = state["procedure"];
 
-        const diagnoses_indices = diagnoses.map((item)=>
-            data["diagnosis"].find(
+        const diagnosis_indices = diagnoses.map((item)=>
+            data["diagnosis"].findIndex(
                 (element)=>element["name"] === item
-            )["index"]
+            )
         );
 
 
-        const procedures_indices = procedures.map((item)=>
-            data["procedure"].find(
+        const procedure_indices = procedures.map((item)=>
+            data["procedure"].findIndex(
                 (element)=>element["name"] === item
-            )["index"]
+            )
         );
 
 
-        diagnoses_indices.sort();
-        procedures_indices.sort();
+        diagnosis_indices.sort();
+        procedure_indices.sort();
 
 
-        const diag_str = diagnoses_indices.join("-");
-        const pro_str = procedures_indices.join("-");
+        const diag_str = diagnosis_indices.join("-");
+        const pro_str = procedure_indices.join("-");
 
 
         const url = `https://us-central1-safedrug-315515.cloudfunctions.net/prediction?diagnosis=${diag_str}&procedure=${pro_str}`;
@@ -43,14 +43,12 @@ function Controls({data}) {
             .then(response => {
                 if (response.data.length > 0) {
                     const drug_indices = response.data.split("-");
-                    const drug_codes = drug_indices.map((item)=>
-                        data["drug"].find(
-                            (element)=>element["index"] === item
-                        )["code"]
+                    const drug_names = drug_indices.map((item)=>
+                        data["drug"][parseInt(item)]["name"]
                     );
                     dispatch({
                         type: "drug",
-                        data: drug_codes
+                        data: drug_names
                     });
                 }
             });
