@@ -4,7 +4,7 @@ import "./Outputs.css";
 import {useStateValue} from "../StateProvider";
 
 function Outputs() {
-    const [state, dispatch] = useStateValue();
+    const state = useStateValue()[0];
 
     return (
         <div className="outputs">

@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 import {useStateValue} from "../StateProvider";
-import { makeStyles } from "@material-ui/core/styles";  
 
 export default function Input({label, options}) {
     const inputStyle = {

@@ -1,11 +1,9 @@
-import React , {useState} from 'react';
+import React from 'react';
 import {useStateValue} from "../StateProvider";
 import "./Controls.css";
 import axios from 'axios';
-import Button from '@material-ui/core/Button';
 import { GiPill } from 'react-icons/gi';
 import { GrPowerReset } from 'react-icons/gr';
-import { Label } from '@material-ui/icons';
 
 function Controls({data}) {
     const [state, dispatch] = useStateValue();
@@ -37,7 +35,6 @@ function Controls({data}) {
 
 
         const url = `https://us-central1-safedrug-315515.cloudfunctions.net/prediction?diagnosis=${diag_str}&procedure=${pro_str}`;
-        const drugBankUrl = "https://api.drugbank.com/v1/categories/atc/";
 
         axios.get(url)
             .then(response => {

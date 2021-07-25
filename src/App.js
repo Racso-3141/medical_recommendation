@@ -4,7 +4,6 @@ import Header from "./Header/Header";
 import Input from "./Input/Input";
 import Outputs from "./Outputs/Outputs";
 import Controls from "./Controls/Controls";
-import reducer, {initialState} from "./reducer";
 import {useStateValue} from "./StateProvider";
 import List from "./List/List";
 import dbRef from "./firebase";
@@ -14,7 +13,7 @@ function App() {
                                     "drug":[],
                                     "procedure":[],                                  
                                     });
-  const [state, dispatch] = useStateValue();   
+  const state = useStateValue()[0];   
   useEffect(() => {
     dbRef.once('value',(snap)=>{
       setData({

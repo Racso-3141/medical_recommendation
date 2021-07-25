@@ -8,16 +8,6 @@ function List({label}) {
 
     const [state, dispatch] = useStateValue();   
 
-    const styles = {
-
-      smallIcon: {
-        width: 10,
-        height: 10,
-        padding: 0
-      },
-    
-    };
-
     const handleRemove = (idx) => {
       let clone = [...state[label]];
       
