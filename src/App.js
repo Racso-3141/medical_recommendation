@@ -47,15 +47,20 @@ function App() {
           </div>
           
         </div>
-
         <div className="down">
-        {state["notify"]}
+        {(state["diagnosis"].length > 0 && state["procedure"].length > 0) && 
+          state["notify"]
+        }
         {state["drug"].length > 0 && 
           <div className="drug">
             <h2>Drug:</h2>
             <Outputs/>
           </div>
         }
+        {!(state["diagnosis"].length > 0 && state["procedure"].length > 0) && 
+          <h3>Input at least one diagnosis and one procedure to get drugs</h3>
+        }
+        
         <Controls data = {data}/>
         </div>
       </div>
