@@ -10,7 +10,7 @@ function Outputs() {
         <div className="outputs">
             {state["drug"].map(item=>
                 <h3>
-                    <span>{item}</span>
+                    <span>💊{item}</span>
                 </h3>                
             )}
         </div>

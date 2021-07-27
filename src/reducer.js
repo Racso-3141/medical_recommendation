@@ -1,14 +1,18 @@
 export const initialState = {
     "diagnosis": [],
     "procedure": [],
-    "drug": []
+    "drug": [],
+    "notify":<h3>Click to get Drugs</h3>,
 };
 
 export const actionTypes = {
     SET_DIAG: "diagnosis",
     SET_PRO: "procedure",
     SET_DRUG: "drug",
-    SET_RESET: "reset"
+    SET_RESET: "reset",
+    SET_NOTIF_ORIGINAL: "original",
+    SET_NOTIF_LOADING: "loading",
+    SET_NOTIF_EMPTY: "empty",
 };
 
 const reducer = (state, action) => {
@@ -34,6 +38,21 @@ const reducer = (state, action) => {
                 "diagnosis": [],
                 "procedure": [],
                 "drug": []
+            };
+        case actionTypes.SET_NOTIF_LOADING:
+            return {
+                ...state,
+                "notify": <h3>Loading Drugs</h3>
+            };
+        case actionTypes.SET_NOTIF_ORIGINAL:
+                return {
+                    ...state,
+                    "notify": <h3>Click to get Drugs</h3>
+                };
+        case actionTypes.SET_NOTIF_EMPTY:
+            return {
+                ...state,
+                "notify": null
             };
         default: 
             return state;

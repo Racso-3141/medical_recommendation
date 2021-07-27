@@ -17,10 +17,9 @@
 }
 
 .outputs h3 span {
-    
     /* background-color: rgba(66, 183, 245,0.8); */
-    background: linear-gradient(90deg, red 50%,
-    #FF9912 50%);
+    background-color: silver;
+    box-shadow: 0.2rem;
     border-radius: 5px;
     border: 10px black;
 }

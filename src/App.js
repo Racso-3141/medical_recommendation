@@ -49,6 +49,7 @@ function App() {
         </div>
 
         <div className="down">
+        {state["notify"]}
         {state["drug"].length > 0 && 
           <div className="drug">
             <h2>Drug:</h2>

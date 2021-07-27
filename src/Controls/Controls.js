@@ -2,6 +2,7 @@ import React from 'react';
 import {useStateValue} from "../StateProvider";
 import "./Controls.css";
 import axios from 'axios';
+import Tooltip from '@material-ui/core/Tooltip';
 import { GiPill } from 'react-icons/gi';
 import { GrPowerReset } from 'react-icons/gr';
 
@@ -9,6 +10,9 @@ function Controls({data}) {
     const [state, dispatch] = useStateValue();
 
     const handleGenerateClick = () => {
+        dispatch({
+            type: "loading"
+        });
         const diagnoses = state["diagnosis"];
         const procedures = state["procedure"];
 
@@ -47,6 +51,9 @@ function Controls({data}) {
                         type: "drug",
                         data: drug_names
                     });
+                    dispatch({
+                        type: "empty"
+                    });
                 }
             });
     };
@@ -55,13 +62,24 @@ function Controls({data}) {
         dispatch({
             type: "reset"
         });
+        dispatch({
+            type: "original"
+        });
         
     };
 
     return (
         <div className = "generate-reset">
-            <GiPill onClick={handleGenerateClick} id="generate" size={70}/>
-            <GrPowerReset onClick={handleResetClick} id="reset" size={50}/>
+            <Tooltip title="Get Drugs" placement="top">
+                <div>
+                    <GiPill onClick={handleGenerateClick} id="generate" size={70}/>
+                </div>
+            </Tooltip>
+            <Tooltip title="Reset" placement="top">
+                <div>
+                    <GrPowerReset onClick={handleResetClick} id="reset" size={50}/>
+                </div>
+            </Tooltip>
         </div>
     )
 }
