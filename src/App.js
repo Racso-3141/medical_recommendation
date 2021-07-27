@@ -57,11 +57,13 @@ function App() {
             <Outputs/>
           </div>
         }
-        {!(state["diagnosis"].length > 0 && state["procedure"].length > 0) && 
+        {(state["diagnosis"].length > 0 && state["procedure"].length > 0) ? 
+          <Controls data = {data}/>
+          :
           <h3>Input at least one diagnosis and one procedure to get drugs</h3>
         }
         
-        <Controls data = {data}/>
+        
         </div>
       </div>
     </div>

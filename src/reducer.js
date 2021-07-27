@@ -2,7 +2,7 @@ export const initialState = {
     "diagnosis": [],
     "procedure": [],
     "drug": [],
-    "notify":<h3>Click to get Drugs</h3>,
+    "notify":<h3>Click left button to get Drugs</h3>,
 };
 
 export const actionTypes = {
@@ -42,12 +42,12 @@ const reducer = (state, action) => {
         case actionTypes.SET_NOTIF_LOADING:
             return {
                 ...state,
-                "notify": <h3>Loading Drugs ... Wait for 10s </h3>
+                "notify": <h3>Loading Drugs ... Wait for 5-30s </h3>
             };
         case actionTypes.SET_NOTIF_ORIGINAL:
                 return {
                     ...state,
-                    "notify": <h3>Click to get Drugs</h3>
+                    "notify": <h3>Click left button to get Drugs</h3>
                 };
         case actionTypes.SET_NOTIF_EMPTY:
             return {
