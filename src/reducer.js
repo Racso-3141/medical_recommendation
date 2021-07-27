@@ -42,7 +42,7 @@ const reducer = (state, action) => {
         case actionTypes.SET_NOTIF_LOADING:
             return {
                 ...state,
-                "notify": <h3>Loading Drugs</h3>
+                "notify": <h3>Loading Drugs ... Wait for 10s </h3>
             };
         case actionTypes.SET_NOTIF_ORIGINAL:
                 return {
